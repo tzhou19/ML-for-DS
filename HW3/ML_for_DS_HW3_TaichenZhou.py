@@ -93,7 +93,7 @@ class matrix_factorization:
         # n1 x n2 = n1 x n2 - (n1 x d  @ d x n2)
         part1 = self.M - (self.user @ self.movie.T)
         part1 = part1[~np.isnan(part1)]
-        loss = (-(1/SIGMA**2)*np.sum(part1**2) 
+        loss = (-(1/SIGMA)*np.sum(part1**2) 
                 - ((LAMBDA/2)*np.linalg.norm(self.user)**2) 
                 - ((LAMBDA/2)*np.linalg.norm(self.movie)**2))
         return loss
